@@ -1,0 +1,86 @@
+Declarar variables
+
+definir numeroFactura, cedula, cantidadEntradas como entero
+definir nombreComprador como cadena
+definir localidad como entero
+definir precioEntrada, subtotal, cargosServicios, totalPagar como real
+definir continuar como caracter
+definir contadorEntradasSol, contadorEntradasSombra, contadorEntradasPreferencial como entero
+definir acumuladoSol, acumuladoSombra, acumuladoPreferencial como real
+
+Inicializar Variables Contadores
+contadorEntradasSol = 0
+contadorEntradasSombra = 0
+contadorEntradasPreferencial = 0
+acumuladoSol = 0
+acumuladoSombra = 0
+acumuladoPreferencial = 0
+
+Entrada de datos
+ESCRIBIR "Ingrese el número de factura:"
+LEER numeroFactura
+ESCRIBIR "Ingrese la cédula del comprador:"
+LEER cedula
+ESCRIBIR "Ingrese el nombre del comprador:"
+LEER nombreComprador
+ESCRIBIR "Seleccione la localidad (1: Sol Norte/Sur, 2: Sombra Este/Oeste, 3: Preferencial):"
+LEER localidad
+    
+Validar Local
+SI localidad < 1 O localidad > 3 ENTONCES
+ESCRIBIR "Localidad inválida."
+CONTINUAR
+FIN SI
+    
+ESCRIBIR "Ingrese la cantidad de entradas (máximo 4):"
+LEER cantidadEntradas
+    
+Validar cantidad de entradas
+SI cantidadEntradas < 1 O cantidadEntradas > 4 ENTONCES
+ESCRIBIR "Cantidad de entradas inválida."
+FIN SI
+
+Funciones
+
+SEGUN localidad HACER
+1: precioEntrada = 10500
+contadorEntradasSol = contadorEntradasSol + cantidadEntradas
+acumuladoSol = acumuladoSol + (precioEntrada * cantidadEntradas)
+
+2: precioEntrada = 20500
+contadorEntradasSombra = contadorEntradasSombra + cantidadEntradas
+acumuladoSombra = acumuladoSombra + (precioEntrada * cantidadEntradas)
+
+3: precioEntrada = 25500
+contadorEntradasPreferencial = contadorEntradasPreferencial + cantidadEntradas
+acumuladoPreferencial = acumuladoPreferencial + (precioEntrada * cantidadEntradas)
+FIN SEGUN
+
+subtotal = cantidadEntradas * precioEntrada
+cargosServicios = 1000 * cantidadEntradas
+totalPagar = subtotal + cargosServicios
+
+Salida de Datos
+ESCRIBIR "Número de factura: ", numeroFactura
+ESCRIBIR "Cédula: ", cedula
+ESCRIBIR "Nombre del comprador: ", nombreComprador
+ESCRIBIR "Localidad: ", localidad
+ESCRIBIR "Cantidad de entradas: ", cantidadEntradas
+ESCRIBIR "Subtotal: ", subtotal
+ESCRIBIR "Cargos por servicios: ", cargosServicios
+ESCRIBIR "Total a pagar: ", totalPagar
+
+ESCRIBIR "Desea continuar? (S/N):"
+LEER continuar
+HASTA QUE continuar != 'S'
+
+ESCRIBIR "Estadisticas del Total de ventas de entradas"
+ESCRIBIR "Estadísticas finales:"
+ESCRIBIR "Cantidad de entradas en Sol Norte/Sur: ", contadorEntradasSol
+ESCRIBIR "Acumulado de dinero en Sol Norte/Sur: ", acumuladoSol
+ESCRIBIR "Cantidad de entradas en Sombra Este/Oeste: ", contadorEntradasSombra
+ESCRIBIR "Acumulado de dinero en Sombra Este/Oeste: ", acumuladoSombra
+ESCRIBIR "Cantidad de entradas en Preferencial: ", contadorEntradasPreferencial
+ESCRIBIR "Acumulado de dinero en Preferencial: ", acumuladoPreferencial
+
+FIN

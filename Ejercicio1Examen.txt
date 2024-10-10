@@ -1,0 +1,93 @@
+Declarar variables
+
+definir Cedula, Tipo, HorasLaborales, PrecioHora como entero
+definir SalarioOrdinario, Aumento, salarioBruto, DeduccionCCSS, SalarioNeto como real
+definir Continuar, Nombre como caracter
+definir ContadorOperarios, ContadorTecnicos, ContadorProfesionales como entero
+definir AcumuladoNetoOperarios, AcumuladoNetoTecnicos, AcumuladoNetoProfesionales como real
+definir PromedioNetoOperarios, PromedioNetoTecnicos, PromedioNetoProfesionales como real
+
+Inicializar Variables Contadores
+
+contadorOperarios = 0
+contadorTecnicos = 0
+contadorProfesionales = 0
+acumuladoNetoOperarios = 0
+acumuladoNetoTecnicos = 0
+acumuladoNetoProfesionales = 0
+
+Entrada de datos
+
+ESCRIBIR "Ingrese el numero de cedula del empleado:"
+LEER Cedula
+ESCRIBIR "Ingrese el nombre completo del empleado:"
+LEER Nombre
+ESCRIBIR "Ingrese el tipo de empleado (1: Operario, 2: Tecnico, 3: Profesional):"
+LEER Tipo
+ESCRIBIR "Ingrese la cantidad de horas laboradas:"
+LEER HorasLaborales
+ESCRIBIR "Ingrese el precio por hora:"
+LEER PrecioHora
+
+Funciones
+
+SalarioOrdinario = horasLaboradas * precioHora
+
+SI Tipo = 1 ENTONCES
+Aumento = SalarioOrdinario * 0.15
+contadorOperarios = ContadorOperarios + 1
+acumuladoNetoOperarios = AcumuladoNetoOperarios + SalarioOrdinario + Aumento - SalarioOrdinario + Aumento) * 0.0917)
+
+SINO SI Tipo = 2 ENTONCES
+Aumento = SalarioOrdinario * 0.10
+contadorTecnicos = ContadorTecnicos + 1
+acumuladoNetoTecnicos = AcumuladoNetoOperarios + SalarioOrdinario + aumento - SalarioOrdinario + Aumento) * 0.0917)
+
+SINO SI Tipo = 3 ENTONCES
+Aumento = SalarioOrdinario * 0.05
+ContadorProfesionales = ContadorProfesionales + 1
+acumuladoNetoProfesionales = AcumuladoNetoOperarios + SalarioOrdinario + Aumento - SalarioOrdinario + Aumento) * 0.0917)
+FIN SI
+
+SalarioBruto = SalarioOrdinario + Aumento
+DeduccionCCSS = SalarioBruto * 0.0917
+SalarioNeto = SalarioBruto - DeduccionCCSS
+
+ESCRIBIR "Cedula: ", Cedula
+ESCRIBIR "Nombre del empleado: ", Nombre
+ESCRIBIR "Tipo de empleado: ", Tipo
+ESCRIBIR "Salario por hora: ", PrecioHora
+ESCRIBIR "Cantidad de horas laboradas: ", HorasLaborales
+ESCRIBIR "Salario ordinario: ", SalarioOrdinario
+ESCRIBIR "Aumento: ", Aumento
+ESCRIBIR "Salario bruto: ", SalarioBruto
+ESCRIBIR "Deduccion CCSS: ", DeduccionCCSS
+ESCRIBIR "Salario neto: ", SalarioNeto
+
+ESCRIBIR "Hay mas empleados por contar? Indique "Si" o "No":"
+LEER continuar
+
+HASTA QUE continuar != 'Si'
+
+SI ContadorOperarios > 0
+PromedioNetoOperarios = AcumuladoNetoOperarios / ContadorOperarios
+FIN SI
+SI ContadorTecnicos > 0
+PromedioNetoTecnicos = AcumuladoNetoTecnicos / ContadorTecnicos
+FIN SI
+SI ContadorProfesionales > 0
+PromedioNetoProfesionales = AcumuladoNetoProfesionales / ContadorProfesionales
+FIN SI
+
+ESCRIBIR "Analisis del total de empleados"
+ESCRIBIR "Cantidad de operarios: ", ContadorOperarios
+ESCRIBIR "Cantidad de tecnicos: ", ContadorTecnicos
+ESCRIBIR "Cantidad de profesionales: ", ContadorProfesionales
+ESCRIBIR "Acumulado salario neto operarios: ", AcumuladoNetoOperarios
+ESCRIBIR "Acumulado salario neto tecnicos: ", AcumuladoNetoTecnicos
+ESCRIBIR "Acumulado salario neto profesionales: ", AcumuladoNetoProfesionales
+ESCRIBIR "Promedio salario neto operarios: ", PromedioNetoOperarios
+ESCRIBIR "Promedio salario neto tecnicos: ", PromedioNetoTecnicos
+ESCRIBIR "Promedio salario neto profesionales: ", PromedioNetoProfesionales
+
+FIN
